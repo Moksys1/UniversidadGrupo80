@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package universidadgrupo80;
+package universidadgrupo80.accesoADatos;
 
 /**
  *
  * @author PC
  */
-public class Alumno {
+public class AlumnoData {
     
 }
