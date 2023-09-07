@@ -8,8 +8,8 @@ public class Inscripcion {
     private Materia materia;
     private double nota;
 
-    public Inscripcion(int idIncripcion, Alumno alumno, Materia materia, double nota) {
-        this.idInscripcion = idIncripcion;
+    public Inscripcion(int idIncsripcion, Alumno alumno, Materia materia, double nota) {
+        this.idInscripcion = idInscripcion;
         this.alumno = alumno;
         this.materia = materia;
         this.nota = nota;
@@ -28,12 +28,12 @@ public class Inscripcion {
         this.nota = nota;
     }
 
-    public int getIdIncripcion() {
+    public int getIdInscripcion() {
         return idInscripcion;
     }
 
-    public void setIdIncripcion(int idIncripcion) {
-        this.idInscripcion = idIncripcion;
+    public void setIdInscripcion(int idInscripcion) {
+        this.idInscripcion = idInscripcion;
     }
 
     public Alumno getAlumno() {
