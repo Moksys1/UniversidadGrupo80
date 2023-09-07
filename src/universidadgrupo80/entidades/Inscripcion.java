@@ -3,13 +3,13 @@ package universidadgrupo80.entidades;
 
 public class Inscripcion {
     
-    private int idIncripcion;
+    private int idInscripcion;
     private Alumno alumno;
     private Materia materia;
     private double nota;
 
     public Inscripcion(int idIncripcion, Alumno alumno, Materia materia, double nota) {
-        this.idIncripcion = idIncripcion;
+        this.idInscripcion = idIncripcion;
         this.alumno = alumno;
         this.materia = materia;
         this.nota = nota;
@@ -29,11 +29,11 @@ public class Inscripcion {
     }
 
     public int getIdIncripcion() {
-        return idIncripcion;
+        return idInscripcion;
     }
 
     public void setIdIncripcion(int idIncripcion) {
-        this.idIncripcion = idIncripcion;
+        this.idInscripcion = idIncripcion;
     }
 
     public Alumno getAlumno() {
@@ -62,7 +62,7 @@ public class Inscripcion {
 
     @Override
     public String toString() {
-        String insc = idIncripcion + " " + alumno.getApellido() + ", " + alumno.getNombre() + " " + materia.getNombre();
+        String insc = idInscripcion + " " + alumno.getApellido() + ", " + alumno.getNombre() + " " + materia.getNombre();
         return insc;
         
     }
