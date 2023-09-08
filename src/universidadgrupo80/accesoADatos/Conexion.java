@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
 
-    public static final String URL = "jdbc.mariadb://localhost/";
+    public static final String URL = "jdbc:mariadb://localhost/";
     public static final String DB = "universidadgrupo80";
     public static final String USUARIO = "root";
     public static final String PASSWORD = "";
@@ -29,7 +29,7 @@ public class Conexion {
         if (conexion == null) {
             try {
                 Class.forName("org.mariadb.jdbc.Driver");
-                conexion = DriverManager.getConnection(URL + DB, USUARIO, PASSWORD);
+                conexion = DriverManager.getConnection(URL+DB, USUARIO, PASSWORD);
 
                 JOptionPane.showMessageDialog(null, "¡Conexion exitosa!");
 
