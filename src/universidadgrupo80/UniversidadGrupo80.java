@@ -5,6 +5,9 @@
  */
 package universidadgrupo80;
 
+import java.sql.Connection;
+import universidadgrupo80.accesoADatos.Conexion;
+
 /**
  *
  * @author Moksys
@@ -17,8 +20,7 @@ public class UniversidadGrupo80 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        System.out.println("Holaaaa");
-        System.out.println("hola mundo");
+        Connection con = Conexion.getConnection();
     }
     
 }
