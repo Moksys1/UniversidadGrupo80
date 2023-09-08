@@ -20,7 +20,9 @@ public class UniversidadGrupo80 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Connection con = Conexion.getConnection();
+        //Connection con = Conexion.getConnection();
+        
+        
     }
     
 }

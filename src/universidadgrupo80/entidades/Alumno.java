@@ -1,9 +1,9 @@
-
 package universidadgrupo80.entidades;
 
 import java.time.LocalDate;
 
 public class Alumno {
+
     private int idAlumno;
     private int dni;
     private String apellido;
@@ -14,17 +14,17 @@ public class Alumno {
     public Alumno() {
     }
 
-    public Alumno(int idAlumno,int dni, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
+    public Alumno(int idAlumno, int dni, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
         this.idAlumno = idAlumno;
-        this.dni= dni;
+        this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
         this.activo = activo;
     }
 
-    public Alumno(int dni,String apellido, String nombre, LocalDate fechaNac, boolean activo) {
-        this.dni=dni;
+    public Alumno(int dni, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
+        this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
@@ -81,6 +81,6 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno{" + "idAlumno=" + idAlumno + ", apellido=" + apellido + ", nombre=" + nombre + '}';
-    } 
+        return "Alumno{" + "idAlumno=" + idAlumno + ", dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + '}';
+    }
 }

@@ -47,25 +47,24 @@ public class AlumnoData {
 
     public Alumno BucarAlumno(int id) {
         Alumno alumno = null;
-        String sql = "SELECT dni,apellido,nombre,fechaNac FROM alumno WHERE idAlumno=? AND estado =1";
+        String sql = "SELECT dni, apellido, nombre, fechaNac FROM alumno WHERE idAlumno=? AND estado =1";
         PreparedStatement ps = null;
         try {
-            ps=con.prepareStatement(sql);
-            ps.setInt(1,id);
-            ResultSet rs=ps.executeQuery();
-               if (rs.next()) {
-                alumno=new Alumno();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                alumno = new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alumno.setActivo(true);
-                
-                
+
                 JOptionPane.showMessageDialog(null, "Alumno añadido con exito.");
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
         }
