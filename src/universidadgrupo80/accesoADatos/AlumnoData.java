@@ -73,4 +73,23 @@ public class AlumnoData {
         }
         return alumno;
     }
+    public void modificarAlumno(Alumno alumno){
+        String sql = "UPDATE alumno Set dni = ?, apellido = ?, nombre = ?, fechaNac = ? WHERE idAlumno = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, alumno.getDni());
+            ps.setString(2, alumno.getApellido());
+            ps.setString(3, alumno.getNombre());
+            ps.setDate(4, Date.valueOf(alumno.getFechaNac()));
+            ps.setInt(5, alumno.getIdAlumno());
+            int exito = ps.executeUpdate();
+            if(exito==1){
+                JOptionPane.showMessageDialog(null, "Modificado correctamente");
+            }else{
+                JOptionPane.showMessageDialog(null, "El alumno buscado no existe");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno");
+        }
+    }
 }
