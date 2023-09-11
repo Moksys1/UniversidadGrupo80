@@ -45,7 +45,7 @@ public class AlumnoData {
         }
     }
 
-    public Alumno BucarAlumno(int id) {
+    public Alumno BuscarAlumno(int id) {
         Alumno alumno = null;
         String sql = "SELECT dni, apellido, nombre, fechaNac FROM alumno WHERE idAlumno=? AND estado =1";
         PreparedStatement ps = null;
@@ -63,10 +63,14 @@ public class AlumnoData {
                 alumno.setActivo(true);
 
                 JOptionPane.showMessageDialog(null, "Alumno añadido con exito.");
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe este alumno.");
             }
+            ps.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno.");
         }
+        return alumno;
     }
 }
