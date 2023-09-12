@@ -26,7 +26,7 @@ public class UniversidadGrupo80 {
         
         //Connection con = Conexion.getConnection();
         
-        Alumno juancito = new Alumno(43856345, "Suarez", "Valentina", LocalDate.of(2001, 06, 26), true);
+        Alumno juancito = new Alumno(45698753, "Sepulveda", "kevin", LocalDate.of(2005, 10, 11), true);
         AlumnoData alu = new AlumnoData();
         alu.guardarAlumno(juancito);
         //alu.modificarAlumno(juancito);
