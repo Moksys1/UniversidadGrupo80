@@ -23,15 +23,5 @@ public class UniversidadGrupo80 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        //Connection con = Conexion.getConnection();
-        
-        Alumno juancito = new Alumno(45698753, "Sepulveda", "kevin", LocalDate.of(2005, 10, 11), true);
-        AlumnoData alu = new AlumnoData();
-        alu.guardarAlumno(juancito);
-        //alu.modificarAlumno(juancito);
-        //alu.BuscarAlumno(1);
-        //alu.eliminarAlumno(1);
+  
     }
-    
-}
