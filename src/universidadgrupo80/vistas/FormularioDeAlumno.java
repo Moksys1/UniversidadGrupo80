@@ -59,7 +59,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Nombre");
 
-        jBGuardar.setText("Guardar");
+        jBGuardar.setText("Salir");
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
