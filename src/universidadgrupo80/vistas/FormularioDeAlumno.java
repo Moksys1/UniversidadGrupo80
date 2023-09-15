@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import universidadgrupo80.accesoADatos.AlumnoData;
 import universidadgrupo80.entidades.Alumno;
@@ -48,8 +49,8 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jBNuevo = new javax.swing.JButton();
+        jbBuscar = new javax.swing.JButton();
 
         jLabel1.setText("Formulario Alumno");
 
@@ -88,9 +89,19 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton3.setText("Nuevo");
+        jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Buscar");
+        jbBuscar.setText("Buscar");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +121,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                             .addComponent(jTApellido)
                             .addComponent(jTNombre))
                         .addGap(36, 36, 36)
-                        .addComponent(jButton4))
+                        .addComponent(jbBuscar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -125,7 +136,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                         .addComponent(jDFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(jBNuevo)
                         .addGap(32, 32, 32)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -142,7 +153,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton4))
+                    .addComponent(jbBuscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,7 +170,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBGuardar)
                     .addComponent(jButton2)
-                    .addComponent(jButton3)
+                    .addComponent(jBNuevo)
                     .addComponent(jButton1))
                 .addGap(37, 37, 37))
         );
@@ -207,13 +218,39 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        // TODO add your handling code here:
+        
+        jTDocumento.setText("");
+        jTApellido.setText("");
+        jTNombre.setText("");
+        jDFechaNac.setDateFormatString("");
+    }//GEN-LAST:event_jBNuevoActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        for (Alumno buscarAlu : aludata.listarAlumnos()) {
+            if (buscarAlu.getDni()== Integer.parseInt(jTDocumento.getText())) {
+                
+                jTApellido.setText(buscarAlu.getApellido());
+                jTNombre.setText(buscarAlu.getNombre());
+                jDFechaNac.setDateFormatString(buscarAlu.getFechaNac().format(DateTimeFormatter.ISO_DATE));
+                
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBGuardar;
+    private javax.swing.JButton jBNuevo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private com.toedter.calendar.JDateChooser jDFechaNac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -223,5 +260,6 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTApellido;
     private javax.swing.JTextField jTDocumento;
     private javax.swing.JTextField jTNombre;
+    private javax.swing.JButton jbBuscar;
     // End of variables declaration//GEN-END:variables
 }
