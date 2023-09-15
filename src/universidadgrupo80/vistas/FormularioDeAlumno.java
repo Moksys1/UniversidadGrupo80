@@ -25,6 +25,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
     public FormularioDeAlumno() {
         initComponents();
         aludata =new AlumnoData();
+        
     }
 
     /**
@@ -192,14 +193,12 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       
         int documento = Integer.parseInt(jTDocumento.getText());
-        String apellido = jTApellido.getText();
-        String nombre = jTNombre.getText();
-        LocalDate fechan=jDFechaNac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+       Alumno alumnoEliminar=aludata.BuscarAlumnoPorDni(documento);
         
-        Alumno alu = new Alumno(documento, apellido, nombre,fechan, true);
-        System.out.println(alu);
+        
        
-         aludata.eliminarAlumno(0);
+       
+         aludata.eliminarAlumno(alumnoEliminar.getIdAlumno());
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
