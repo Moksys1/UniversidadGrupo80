@@ -36,7 +36,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        menuInscripcion = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -80,8 +80,13 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Administracion ");
 
-        jMenuItem5.setText("Manejo de Inscripciones");
-        jMenu3.add(jMenuItem5);
+        menuInscripcion.setText("Manejo de Inscripciones");
+        menuInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuInscripcionActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuInscripcion);
 
         jMenuItem6.setText("Manipulacion de Notas");
         jMenu3.add(jMenuItem6);
@@ -130,6 +135,19 @@ public class menuPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuAlumnoActionPerformed
 
+    private void menuInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInscripcionActionPerformed
+      
+        // TODO add your handling code here:
+         escritorio.removeAll();
+        escritorio.repaint();
+        
+        MenuInscripcion mi = new MenuInscripcion();
+        mi.setVisible(true);
+        escritorio.add(mi);
+        escritorio.moveToFront(mi);
+        
+    }//GEN-LAST:event_menuInscripcionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -177,8 +195,8 @@ public class menuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem menuInscripcion;
     // End of variables declaration//GEN-END:variables
 }
