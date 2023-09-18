@@ -5,6 +5,7 @@
  */
 package universidadgrupo80.vistas;
 
+import javax.swing.DefaultComboBoxModel;
 import universidadgrupo80.accesoADatos.AlumnoData;
 import universidadgrupo80.entidades.Alumno;
 
@@ -183,7 +184,11 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
-private void cargarCombo() {
-        jCbAlumnos.add(aluDat.listarAlumnos());
+private void cargarCombo (){
+        DefaultComboBoxModel<Alumno> model =new DefaultComboBoxModel<>();
+        
+    for(Alumno ListAlumno : aluDat.listarAlumnos()){
+        
     }
+}
 }
