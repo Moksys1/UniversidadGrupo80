@@ -173,11 +173,5 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
-private void cargarCombo (){
-        DefaultComboBoxModel<Alumno> model =new DefaultComboBoxModel<>();
-        
-    for(Alumno ListAlumno : aluDat.listarAlumnos()){
-        jCbAlumnos.addItem(ListAlumno.getApellido());
-    }
-}
+
 }
