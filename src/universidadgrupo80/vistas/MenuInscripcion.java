@@ -6,19 +6,23 @@
 package universidadgrupo80.vistas;
 
 import universidadgrupo80.accesoADatos.AlumnoData;
+import universidadgrupo80.entidades.Alumno;
 
 /**
  *
  * @author Usuario
  */
 public class MenuInscripcion extends javax.swing.JInternalFrame {
-    AlumnoData aluDat =new AlumnoData();
+
+    AlumnoData aluDat = new AlumnoData();
+
     /**
      * Creates new form MenuInscripcion
      */
     public MenuInscripcion() {
         initComponents();
-        
+        aluDat = new AlumnoData();
+
     }
 
     /**
@@ -35,7 +39,7 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBtnSalir = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jCbAlumnos = new javax.swing.JComboBox<>();
@@ -64,7 +68,12 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
 
         jButton2.setText("Anular inscripcion");
 
-        jButton3.setText("Salir");
+        jBtnSalir.setText("Salir");
+        jBtnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSalirActionPerformed(evt);
+            }
+        });
 
         jRadioButton1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         jRadioButton1.setText("Materias inscriptas");
@@ -72,7 +81,6 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel2.setText("Seleccionar alumno");
 
-        jCbAlumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jCbAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCbAlumnosActionPerformed(evt);
@@ -105,7 +113,7 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
                 .addGap(124, 124, 124)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jBtnSalir)
                 .addGap(44, 44, 44))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -144,7 +152,7 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jBtnSalir))
                 .addGap(14, 14, 14))
         );
 
@@ -155,12 +163,17 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCbAlumnosActionPerformed
 
+    private void jBtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jBtnSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnSalir;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jCbAlumnos;
+    private javax.swing.JComboBox<Alumno> jCbAlumnos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JRadioButton jRadioButton1;
@@ -170,7 +183,7 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
-private void cargarCombo (){
-    jCbAlumnos.add(aluDat.listarAlumnos(Alumnos));
-}
+private void cargarCombo() {
+        jCbAlumnos.add(aluDat.listarAlumnos());
+    }
 }

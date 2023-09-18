@@ -146,7 +146,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
         
-        FormularioMateria formMateria = new FormularioMateria();
+        FormularioDeMaterias formMateria = new FormularioDeMaterias();
         formMateria.setVisible(true);
         escritorio.add(formMateria);
         escritorio.moveToFront(formMateria);
