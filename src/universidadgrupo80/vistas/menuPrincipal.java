@@ -34,9 +34,9 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuAlumno = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMFormMateria = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuInscripcion = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -73,15 +73,25 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenu2.setText("Materia");
 
-        jMenuItem4.setText("Formulario de Materia");
-        jMenu2.add(jMenuItem4);
+        jMFormMateria.setText("Formulario de Materia");
+        jMFormMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMFormMateriaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMFormMateria);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Administracion ");
 
-        jMenuItem5.setText("Manejo de Inscripciones");
-        jMenu3.add(jMenuItem5);
+        jMenuInscripcion.setText("Manejo de Inscripciones");
+        jMenuInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuInscripcionActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuInscripcion);
 
         jMenuItem6.setText("Manipulacion de Notas");
         jMenu3.add(jMenuItem6);
@@ -130,6 +140,30 @@ public class menuPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuAlumnoActionPerformed
 
+    private void jMFormMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormMateriaActionPerformed
+        // TODO add your handling code here:
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        FormularioMateria formMateria = new FormularioMateria();
+        formMateria.setVisible(true);
+        escritorio.add(formMateria);
+        escritorio.moveToFront(formMateria);
+    }//GEN-LAST:event_jMFormMateriaActionPerformed
+
+    private void jMenuInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuInscripcionActionPerformed
+        // TODO add your handling code here:
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        MenuInscripcion inscripcion = new MenuInscripcion();
+        inscripcion.setVisible(true);
+        escritorio.add(inscripcion);
+        escritorio.moveToFront(inscripcion);
+    }//GEN-LAST:event_jMenuInscripcionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -167,6 +201,7 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuItem jMFormMateria;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -175,9 +210,8 @@ public class menuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuAlumno;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuInscripcion;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     // End of variables declaration//GEN-END:variables
