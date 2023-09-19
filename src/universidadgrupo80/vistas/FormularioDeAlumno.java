@@ -14,17 +14,10 @@ import javax.swing.JOptionPane;
 import universidadgrupo80.accesoADatos.AlumnoData;
 import universidadgrupo80.entidades.Alumno;
 
-/**
- *
- * @author PC
- */
 public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
     private AlumnoData aludata;
 
-    /**
-     * Creates new form FormularioDeAlumno
-     */
     public FormularioDeAlumno() {
         initComponents();
         aludata = new AlumnoData();
@@ -51,7 +44,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         jDFechaNac = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         jBSalir = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jEliminar = new javax.swing.JButton();
         jBNuevo = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
 
@@ -96,11 +89,11 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jEliminar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jEliminar.setText("Eliminar");
+        jEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jEliminarActionPerformed(evt);
             }
         });
 
@@ -151,7 +144,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                         .addGap(22, 22, 22)
                         .addComponent(jBNuevo)
                         .addGap(45, 45, 45)
-                        .addComponent(jButton2)
+                        .addComponent(jEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                         .addComponent(jBGuardar)
                         .addGap(25, 25, 25)))
@@ -188,7 +181,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBGuardar)
-                    .addComponent(jButton2)
+                    .addComponent(jEliminar)
                     .addComponent(jBNuevo)
                     .addComponent(jBSalir))
                 .addGap(37, 37, 37))
@@ -219,14 +212,14 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 //        }
     }//GEN-LAST:event_jDFechaNacPropertyChange
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEliminarActionPerformed
 
         int documento = Integer.parseInt(jTDocumento.getText());
         Alumno alumnoEliminar = aludata.BuscarAlumnoPorDni(documento);
 
         aludata.eliminarAlumno(alumnoEliminar.getIdAlumno());
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jEliminarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         // TODO add your handling code here:
@@ -267,8 +260,8 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBNuevo;
     private javax.swing.JButton jBSalir;
-    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDFechaNac;
+    private javax.swing.JButton jEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

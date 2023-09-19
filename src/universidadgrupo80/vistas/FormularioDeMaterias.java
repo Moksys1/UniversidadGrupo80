@@ -5,17 +5,20 @@
  */
 package universidadgrupo80.vistas;
 
-/**
- *
- * @author Moksys
- */
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import universidadgrupo80.accesoADatos.MateriaData;
+import universidadgrupo80.entidades.Materia;
+
 public class FormularioDeMaterias extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form FormularioDeMaterias
-     */
+    private MateriaData matData;
+
     public FormularioDeMaterias() {
         initComponents();
+        matData = new MateriaData();
     }
 
     /**
@@ -27,29 +30,39 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton3 = new javax.swing.JButton();
+        jBtnEliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        jBtnGuardar = new javax.swing.JButton();
         jBtnSalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTCodigo = new javax.swing.JTextField();
+        jTIdMateria = new javax.swing.JTextField();
         jTNombre = new javax.swing.JTextField();
         jTAño = new javax.swing.JTextField();
         jRBEstado = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        jBtnBuscar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
-        jButton3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton3.setText("Eliminar");
+        jBtnEliminar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jBtnEliminar.setText("Eliminar");
+        jBtnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnEliminarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel1.setText("Codigo:");
 
-        jButton4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton4.setText("Guardar");
+        jBtnGuardar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jBtnGuardar.setText("Guardar");
+        jBtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnGuardarActionPerformed(evt);
+            }
+        });
 
         jBtnSalir.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jBtnSalir.setText("Salir");
@@ -68,17 +81,17 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel4.setText("Estado:");
 
-        jTCodigo.addActionListener(new java.awt.event.ActionListener() {
+        jTIdMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTCodigoActionPerformed(evt);
+                jTIdMateriaActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBtnBuscar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jBtnBuscar.setText("Buscar");
+        jBtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBtnBuscarActionPerformed(evt);
             }
         });
 
@@ -97,14 +110,14 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(jBtnBuscar)
                         .addGap(49, 49, 49))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,9 +129,9 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
                 .addGap(49, 49, 49)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBtnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(jButton4)
+                .addComponent(jBtnGuardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBtnSalir)
                 .addGap(30, 30, 30))
@@ -133,8 +146,8 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(jTIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnBuscar)
                     .addComponent(jLabel1))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -151,8 +164,8 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)
+                            .addComponent(jBtnEliminar)
+                            .addComponent(jBtnGuardar)
                             .addComponent(jBtnSalir))
                         .addGap(53, 53, 53))
                     .addGroup(layout.createSequentialGroup()
@@ -163,27 +176,67 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigoActionPerformed
+    private void jTIdMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIdMateriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTCodigoActionPerformed
+    }//GEN-LAST:event_jTIdMateriaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+        boolean encontrado = false;
+        for (Materia buscarMateria : matData.listarMaterias()) {
+            if (buscarMateria.getIdMateria() == Integer.parseInt(jTIdMateria.getText())) {
+                encontrado = true;
+                jTNombre.setText(buscarMateria.getNombre());
+                jTAño.setText(String.valueOf(buscarMateria.getAño()));
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(null, "No se encuentra una materia con ese codigo.");
+        }
+    }//GEN-LAST:event_jBtnBuscarActionPerformed
 
     private void jBtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalirActionPerformed
         // TODO add your handling code here:
-        
+
         dispose();
     }//GEN-LAST:event_jBtnSalirActionPerformed
 
+    private void jBtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarActionPerformed
+        // TODO add your handling code here:
+
+        String nombre = jTNombre.getText();
+        int año = Integer.parseInt(jTAño.getText());
+
+        Materia mates = new Materia(nombre, año, true);
+        System.out.println(mates);
+
+        try {
+            matData.guardarMateria(mates);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Alguno de los datos ingresados es incorrecto.");
+        }
+
+    }//GEN-LAST:event_jBtnGuardarActionPerformed
+
+    private void jBtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEliminarActionPerformed
+        // TODO add your handling code here:
+
+        int idMateria = Integer.parseInt(jTIdMateria.getText());
+        Materia MateriaEliminar = matData.BuscarMateria(idMateria);
+
+        matData.eliminarMateria(MateriaEliminar.getIdMateria());
+    }//GEN-LAST:event_jBtnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnBuscar;
+    private javax.swing.JButton jBtnEliminar;
+    private javax.swing.JButton jBtnGuardar;
     private javax.swing.JButton jBtnSalir;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -191,7 +244,7 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JRadioButton jRBEstado;
     private javax.swing.JTextField jTAño;
-    private javax.swing.JTextField jTCodigo;
+    private javax.swing.JTextField jTIdMateria;
     private javax.swing.JTextField jTNombre;
     // End of variables declaration//GEN-END:variables
 }
