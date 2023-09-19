@@ -211,7 +211,6 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
         int año = Integer.parseInt(jTAño.getText());
 
         Materia mates = new Materia(nombre, año, true);
-        System.out.println(mates);
 
         try {
             matData.guardarMateria(mates);
