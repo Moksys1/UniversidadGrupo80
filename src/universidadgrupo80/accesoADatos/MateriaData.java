@@ -64,7 +64,6 @@ public class MateriaData {
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAño(rs.getInt("año"));
 
-                JOptionPane.showMessageDialog(null, "Materia añadido con exito.");
             } else {
                 JOptionPane.showMessageDialog(null, "No existe esta Materia.");
             }
