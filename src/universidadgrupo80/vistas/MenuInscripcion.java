@@ -46,13 +46,13 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jBtnSalir = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        jBInscribir = new javax.swing.JButton();
+        jBAnularIns = new javax.swing.JButton();
+        jBSalir = new javax.swing.JButton();
+        jRMateriasInscriptas = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jCbAlumnos = new javax.swing.JComboBox<>();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRMateriasNo = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
@@ -75,25 +75,25 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
         jLabel1.setText("Formulario de inscripcion");
         jLabel1.setAutoscrolls(true);
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setText("Inscribir");
+        jBInscribir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jBInscribir.setText("Inscribir");
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setText("Anular inscripcion");
+        jBAnularIns.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jBAnularIns.setText("Anular inscripcion");
 
-        jBtnSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jBtnSalir.setText("Salir");
-        jBtnSalir.addActionListener(new java.awt.event.ActionListener() {
+        jBSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnSalirActionPerformed(evt);
+                jBSalirActionPerformed(evt);
             }
         });
 
-        jRadioButton1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jRadioButton1.setText("Materias inscriptas");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        jRMateriasInscriptas.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jRMateriasInscriptas.setText("Materias inscriptas");
+        jRMateriasInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jRMateriasInscriptasActionPerformed(evt);
             }
         });
 
@@ -111,11 +111,11 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
-        jRadioButton2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jRadioButton2.setText("Materias no inscriptas");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        jRMateriasNo.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jRMateriasNo.setText("Materias no inscriptas");
+        jRMateriasNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jRMateriasNoActionPerformed(evt);
             }
         });
 
@@ -141,23 +141,23 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jBInscribir)
                         .addGap(66, 66, 66)
-                        .addComponent(jButton2)
+                        .addComponent(jBAnularIns)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBtnSalir)
+                        .addComponent(jBSalir)
                         .addGap(44, 44, 44))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(33, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
+                            .addComponent(jRMateriasInscriptas)
                             .addComponent(jLabel2))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton2)
+                                .addComponent(jRMateriasNo)
                                 .addGap(32, 32, 32))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
@@ -178,15 +178,15 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(jRMateriasInscriptas)
+                    .addComponent(jRMateriasNo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jBtnSalir))
+                    .addComponent(jBInscribir)
+                    .addComponent(jBAnularIns)
+                    .addComponent(jBSalir))
                 .addGap(14, 14, 14))
         );
 
@@ -197,10 +197,10 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCbAlumnosActionPerformed
 
-    private void jBtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalirActionPerformed
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jBtnSalirActionPerformed
+    }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jCbAlumnosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbAlumnosItemStateChanged
         // TODO add your handling code here:
@@ -210,24 +210,25 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jCbAlumnosItemStateChanged
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jRMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMateriasInscriptasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+        
+    }//GEN-LAST:event_jRMateriasInscriptasActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jRMateriasNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMateriasNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_jRMateriasNoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnSalir;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jBAnularIns;
+    private javax.swing.JButton jBInscribir;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JComboBox<Alumno> jCbAlumnos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRMateriasInscriptas;
+    private javax.swing.JRadioButton jRMateriasNo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
