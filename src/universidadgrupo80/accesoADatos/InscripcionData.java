@@ -10,6 +10,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 import universidadgrupo80.entidades.Inscripcion;
@@ -51,5 +53,28 @@ public class InscripcionData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
 
         }
+    }
+    public void actulizarNota (int idAlumno,int idMateria,double nota){
+        
+        String sql = "UPDATE inscripcion SET nota = ? WHERE idAlumno = ? and idMateria = ? ";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDouble(1,nota);
+            ps.setInt(2, idAlumno);
+            ps.setInt(3, idMateria);
+            int filas =ps.executeUpdate();
+            if(filas>0){
+                JOptionPane.showMessageDialog(null, "Nota actulizada");
+            }
+            ps.close();
+            
+                 
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error al accerder a la tabla Inscripcion");
+           
+        }
+        
+        
     }
 }
