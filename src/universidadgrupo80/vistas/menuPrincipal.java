@@ -5,6 +5,8 @@
  */
 package universidadgrupo80.vistas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -14,6 +16,8 @@ public class menuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form menuPrincipal
      */
+    private static boolean confirmado = false;
+
     public menuPrincipal() {
         initComponents();
     }
@@ -37,7 +41,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMFormMaterias = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuInscripcion = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuCargaDeNotas = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuSalir = new javax.swing.JMenu();
@@ -93,8 +97,13 @@ public class menuPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuInscripcion);
 
-        jMenuItem6.setText("Manipulacion de Notas");
-        jMenu3.add(jMenuItem6);
+        jMenuCargaDeNotas.setText("Manipulacion de Notas");
+        jMenuCargaDeNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCargaDeNotasActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuCargaDeNotas);
 
         jMenuBar1.add(jMenu3);
 
@@ -106,6 +115,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenuSalir.setText("Salir");
+        jMenuSalir.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jMenuSalirItemStateChanged(evt);
+            }
+        });
         jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuSalirActionPerformed(evt);
@@ -132,22 +146,22 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void jMenuAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlumnoActionPerformed
         // TODO add your handling code here:
-        
+
         escritorio.removeAll();
         escritorio.repaint();
-        
+
         FormularioDeAlumno fdl = new FormularioDeAlumno();
         fdl.setVisible(true);
         escritorio.add(fdl);
-        escritorio.moveToFront(fdl);   
+        escritorio.moveToFront(fdl);
     }//GEN-LAST:event_jMenuAlumnoActionPerformed
 
     private void jMenuInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuInscripcionActionPerformed
         // TODO add your handling code here:
-        
+
         escritorio.removeAll();
         escritorio.repaint();
-        
+
         MenuInscripcion inscripcion = new MenuInscripcion();
         inscripcion.setVisible(true);
         escritorio.add(inscripcion);
@@ -156,10 +170,10 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void jMFormMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormMateriasActionPerformed
         // TODO add your handling code here:
-        
+
         escritorio.removeAll();
         escritorio.repaint();
-        
+
         FormularioDeMaterias form = new FormularioDeMaterias();
         form.setVisible(true);
         escritorio.add(form);
@@ -168,8 +182,34 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jMenuSalirActionPerformed
+
+    private void jMenuSalirItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jMenuSalirItemStateChanged
+        // TODO add your handling code here:
+
+        if (!confirmado) {
+            //int opcion = JOptionPane.showConfirmDialog(jMenu1, "¿Estas seguro de que quieres salir?", "Confirmar salida", JOptionPane.YES_NO_CANCEL_OPTION);
+            int opcion = JOptionPane.showOptionDialog(null, "¿Está seguro de que desea salir?", "Confirmar salida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+            if (opcion == JOptionPane.YES_OPTION) {
+                System.exit(0);
+            }
+        } else {
+            confirmado = true;
+        }
+    }//GEN-LAST:event_jMenuSalirItemStateChanged
+
+    private void jMenuCargaDeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCargaDeNotasActionPerformed
+        // TODO add your handling code here:
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+
+        CargaDeNotas notitas = new CargaDeNotas();
+        notitas.setVisible(true);
+        escritorio.add(notitas);
+        escritorio.moveToFront(notitas);
+    }//GEN-LAST:event_jMenuCargaDeNotasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,9 +256,9 @@ public class menuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuAlumno;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuCargaDeNotas;
     private javax.swing.JMenuItem jMenuInscripcion;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenu jMenuSalir;
     // End of variables declaration//GEN-END:variables
