@@ -39,7 +39,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenuAlumno = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMFormMaterias = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        cargaDeNotas = new javax.swing.JMenu();
         jMenuInscripcion = new javax.swing.JMenuItem();
         jMenuCargaDeNotas = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -87,7 +87,12 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Administracion ");
+        cargaDeNotas.setText("Administracion ");
+        cargaDeNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargaDeNotasActionPerformed(evt);
+            }
+        });
 
         jMenuInscripcion.setText("Manejo de Inscripciones");
         jMenuInscripcion.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +100,7 @@ public class menuPrincipal extends javax.swing.JFrame {
                 jMenuInscripcionActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuInscripcion);
+        cargaDeNotas.add(jMenuInscripcion);
 
         jMenuCargaDeNotas.setText("Manipulacion de Notas");
         jMenuCargaDeNotas.addActionListener(new java.awt.event.ActionListener() {
@@ -103,9 +108,9 @@ public class menuPrincipal extends javax.swing.JFrame {
                 jMenuCargaDeNotasActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuCargaDeNotas);
+        cargaDeNotas.add(jMenuCargaDeNotas);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(cargaDeNotas);
 
         jMenu5.setText("Consultas");
 
@@ -201,15 +206,20 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void jMenuCargaDeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCargaDeNotasActionPerformed
         // TODO add your handling code here:
-        
+         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
 
-        CargaDeNotas notitas = new CargaDeNotas();
+        cargaDeNotas notitas = new cargaDeNotas();
         notitas.setVisible(true);
         escritorio.add(notitas);
-        escritorio.moveToFront(notitas);
+        escritorio.moveToFront(notitas);  
+//    
     }//GEN-LAST:event_jMenuCargaDeNotasActionPerformed
+
+    private void cargaDeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaDeNotasActionPerformed
+     
+    }//GEN-LAST:event_cargaDeNotasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,11 +257,11 @@ public class menuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu cargaDeNotas;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem jMFormMaterias;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuAlumno;
