@@ -43,7 +43,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenuInscripcion = new javax.swing.JMenuItem();
         jMenuCargaDeNotas = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        jMIMatXAlum = new javax.swing.JMenuItem();
         jMenuSalir = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
@@ -114,8 +114,13 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenu5.setText("Consultas");
 
-        jMenuItem7.setText("Alumnos por Materia");
-        jMenu5.add(jMenuItem7);
+        jMIMatXAlum.setText("Alumnos por Materia");
+        jMIMatXAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIMatXAlumActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMIMatXAlum);
 
         jMenuBar1.add(jMenu5);
 
@@ -221,6 +226,17 @@ public class menuPrincipal extends javax.swing.JFrame {
      
     }//GEN-LAST:event_cargaDeNotasActionPerformed
 
+    private void jMIMatXAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIMatXAlumActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        FormularioDeConsulta formCon = new FormularioDeConsulta();
+        formCon.setVisible(true);
+        escritorio.add(formCon);
+        escritorio.moveToFront(formCon);
+    }//GEN-LAST:event_jMIMatXAlumActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,6 +276,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu cargaDeNotas;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem jMFormMaterias;
+    private javax.swing.JMenuItem jMIMatXAlum;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -269,7 +286,6 @@ public class menuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuCargaDeNotas;
     private javax.swing.JMenuItem jMenuInscripcion;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenu jMenuSalir;
     // End of variables declaration//GEN-END:variables
 }
