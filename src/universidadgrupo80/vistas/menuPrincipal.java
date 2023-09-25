@@ -150,7 +150,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
 
-        MenuInscripcion inscripcion = new MenuInscripcion();
+        FormularioDeInscripcion inscripcion = new FormularioDeInscripcion();
         inscripcion.setVisible(true);
         escritorio.add(inscripcion);
         escritorio.moveToFront(inscripcion);

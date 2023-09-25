@@ -5,17 +5,25 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import universidadgrupo80.accesoADatos.AlumnoData;
+import universidadgrupo80.accesoADatos.InscripcionData;
+import universidadgrupo80.accesoADatos.MateriaData;
 import universidadgrupo80.entidades.Alumno;
+import universidadgrupo80.entidades.Inscripcion;
 import universidadgrupo80.entidades.Materia;
 
-public class MenuInscripcion extends javax.swing.JInternalFrame {
-    DefaultTableModel modelo=new DefaultTableModel();
+public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
+
+    DefaultTableModel modelo = new DefaultTableModel();
     AlumnoData aluDat = new AlumnoData();
     Alumno alum = new Alumno();
+    MateriaData matData = new MateriaData();
+    Materia mat = new Materia();
+    InscripcionData inscData = new InscripcionData();
+    Inscripcion insc = new Inscripcion();
 
-    public MenuInscripcion() {
+    public FormularioDeInscripcion() {
         initComponents();
-        armarCabecera ();
+        armarCabecera();
         aluDat = new AlumnoData();
         List<Alumno> alumnos = new ArrayList<>();
         alumnos = aluDat.listarAlumnos();
@@ -219,14 +227,31 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTincripcion;
     // End of variables declaration//GEN-END:variables
-private void armarCabecera (){
-    modelo.addColumn("ID");
-    modelo.addColumn("Nombre");
-    modelo.addColumn("Año");
-    jTincripcion.setModel(modelo);
-}
-private void cargarDatos (Materia mat ){
-    modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre()});
-    
-}
+    private void armarCabecera() {
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Año");
+        jTincripcion.setModel(modelo);
+    }
+
+    private void cargarDatos(Materia mat) {
+        modelo.addRow(new Object[]{mat.getIdMateria(), mat.getNombre()});
+
+    }
+
+    private void cargaDatosNoInscriptas() {
+        Alumno selec = (Alumno) jCbAlumnos.getSelectedItem();
+        ArrayList listaM = (ArrayList) inscData.obtenerMateriasNOCursadas(selec.getIdAlumno());
+        for (Materia mat : listaM) {
+            modelo.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), mat.getAño()});
+        }
+    }
+
+    private void cargaDatosInscriptas() {
+        Alumno selec = (Alumno) jCbAlumnos.getSelectedItem();
+        List<Materia> lista = (ArrayList) inscData.obtenerMateriasCursadas(selec.getIdAlumno());
+        for (Materia mat : lista) {
+            modelo.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), mat.getAño()});
+        }
+    }
 }
