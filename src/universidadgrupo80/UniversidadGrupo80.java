@@ -10,7 +10,10 @@ import java.time.LocalDate;
 import java.time.Month;
 import universidadgrupo80.accesoADatos.AlumnoData;
 import universidadgrupo80.accesoADatos.Conexion;
+import universidadgrupo80.accesoADatos.InscripcionData;
+import universidadgrupo80.accesoADatos.MateriaData;
 import universidadgrupo80.entidades.Alumno;
+import universidadgrupo80.entidades.Inscripcion;
 
 /**
  *
@@ -23,25 +26,70 @@ public class UniversidadGrupo80 {
      */
     public static void main(String[] args) {
         
-        //Connection con = Conexion.getConnection();
-  
-//        Alumno juancito = new Alumno(43856345, "Suarez", "Valentina", LocalDate.of(2001, 06, 26), true);
-//        AlumnoData alu = new AlumnoData();
-//        alu.guardarAlumno(juancito);
+        Connection con = Conexion.getConnection();
+        
+        AlumnoData ad = new AlumnoData();
+        MateriaData md = new MateriaData();
+        InscripcionData id= new InscripcionData();
+        
+//------------------------------------------------------------------------------------------
         //Alumno juancito = new Alumno(23454323, "Martinez", "Pedro", LocalDate.of(1992, 01, 07), true);
-        //AlumnoData alu = new AlumnoData();
-        //alu.guardarAlumno(juancito);
-        //alu.modificarAlumno(juancito);
-        //alu.BuscarAlumno(1);
-        //alu.eliminarAlumno(1);
+        //ad.guardarAlumno(juancito);
+        //ad.modificarAlumno(juancito);
+        //ad.BuscarAlumno(1);
+        //ad.eliminarAlumno(1);
+        
+//------------------------------------------------------------------------------------------        
+        
 //        Alumno alumnoEncontrado = alu.BuscarAlumnoPorDni(43856345);
 //        System.out.println(alumnoEncontrado);
-//        AlumnoData alu = new AlumnoData();
+
+//------------------------------------------------------------------------------------------
+
 //        for (Alumno alumno: alu.listarAlumnos()) {
 //            System.out.println("DNI: "+alumno.getDni());
 //            System.out.println("Apellido: "+alumno.getApellido());
 //            System.out.println("Nombre: "+alumno.getNombre());
 //            System.out.println("Fecha de Nacimiento: "+alumno.getFechaNac());
 //            System.out.println("");
+
+//------------------------------------------------------------------------------------------
+
+        
+       /*
+        Alumno valentina = ad.BuscarAlumno(2);
+        Materia mate = md.BuscarMateria(1);
+        Inscripcion insc= new Inscripcion(valentina, mate, 3);
+        
+        id.guardarInscripcion(insc); */
+
+//------------------------------------------------------------------------------------------
+
+//        id.actulizarNota(1, 1, 4);
+
+//------------------------------------------------------------------------------------------
+
+//          id.borrarInscripcionMateriaAlumno(1, 1);
+
+//------------------------------------------------------------------------------------------
+
+        for (Inscripcion insc : id.obtenerInscripciones()) {
+            
+           System.out.println("id: "+ insc.getIdInscripcion());
+           System.out.println("apellido: "+ insc.getAlumno().getApellido());
+           System.out.println("nombre: "+ insc.getAlumno().getNombre());
+           System.out.println("materia: "+insc.getMateria().getNombre());
+            System.out.println("------------");
+        }
+
+//------------------------------------------------------------------------------------------
+
+//        for (Materia materia : id.obtenerMateriasCursadas(1)) {
+//            
+//            System.out.println("nombre: "+ materia.getNombre());
+//            
+//        }
+
+
     }
 }
