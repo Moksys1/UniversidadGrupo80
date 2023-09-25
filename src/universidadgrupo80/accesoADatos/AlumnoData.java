@@ -110,7 +110,7 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno.");
         }
     }
-    
+
     public Alumno BuscarAlumnoPorDni(int dni) {
         Alumno alumno = null;
         String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNac FROM alumno WHERE dni=? AND estado =1";
@@ -138,8 +138,8 @@ public class AlumnoData {
         }
         return alumno;
     }
-    
-    public List <Alumno> listarAlumnos() {
+
+    public List<Alumno> listarAlumnos() {
         Alumno alumno = null;
         String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNac FROM alumno WHERE estado =1";
         ArrayList<Alumno> alumnos = new ArrayList<>();
