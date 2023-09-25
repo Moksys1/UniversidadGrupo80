@@ -23,6 +23,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     DefaultTableModel modelo=new DefaultTableModel();
     MateriaData mateData =new MateriaData ();
     Materia mat =new Materia ();
+    
     /**
      * Creates new form cargaDeNotas
      */
@@ -156,5 +157,6 @@ private void armarCabecera (){
 }
 private void cargarDatos (Materia mat ){
     modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre()});
+    System.out.println("hola");
 }
 }
