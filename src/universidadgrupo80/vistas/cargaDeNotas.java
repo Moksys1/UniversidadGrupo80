@@ -168,6 +168,6 @@ private void armarCabecera (){
 }
 private void cargarDatos (Materia mat ){
     modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre()});
-    System.out.println("hola");
+    
 }
 }

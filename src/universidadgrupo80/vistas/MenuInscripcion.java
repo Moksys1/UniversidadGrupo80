@@ -3,16 +3,19 @@ package universidadgrupo80.vistas;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 import universidadgrupo80.accesoADatos.AlumnoData;
 import universidadgrupo80.entidades.Alumno;
+import universidadgrupo80.entidades.Materia;
 
 public class MenuInscripcion extends javax.swing.JInternalFrame {
-
+    DefaultTableModel modelo=new DefaultTableModel();
     AlumnoData aluDat = new AlumnoData();
     Alumno alum = new Alumno();
 
     public MenuInscripcion() {
         initComponents();
+        armarCabecera ();
         aluDat = new AlumnoData();
         List<Alumno> alumnos = new ArrayList<>();
         alumnos = aluDat.listarAlumnos();
@@ -37,7 +40,7 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
         jCbAlumnos = new javax.swing.JComboBox<>();
         jRMateriasNo = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTincripcion = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,8 +105,8 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTincripcion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTincripcion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -114,7 +117,7 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTincripcion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,7 +217,16 @@ public class MenuInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTincripcion;
     // End of variables declaration//GEN-END:variables
-
+private void armarCabecera (){
+    modelo.addColumn("ID");
+    modelo.addColumn("Nombre");
+    modelo.addColumn("Año");
+    jTincripcion.setModel(modelo);
+}
+private void cargarDatos (Materia mat ){
+    modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre()});
+    
+}
 }
