@@ -50,7 +50,7 @@ public class InscripcionData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 insc.setIdInscripcion(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Inscripcion con exito.");
+                JOptionPane.showMessageDialog(null, "Inscripto con exito.");
             }
             ps.close();
 
@@ -95,7 +95,7 @@ public class InscripcionData {
 
             if (filas > 0) {
 
-                JOptionPane.showMessageDialog(null, "Inscripcion borrada");
+                JOptionPane.showMessageDialog(null, "Inscripcion anulada");
             }
 
             ps.close();
