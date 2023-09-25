@@ -248,7 +248,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
         jTApellido.setText(buscarAlu.getApellido());
         jTNombre.setText(buscarAlu.getNombre());
-        jDFechaNac.setDateFormatString(buscarAlu.getFechaNac().format(DateTimeFormatter.ISO_DATE));
+        jDFechaNac.setDate(Date.valueOf(buscarAlu.getFechaNac()));
         jRBestado.setSelected(buscarAlu.isActivo());
     }//GEN-LAST:event_jbBuscarActionPerformed
 

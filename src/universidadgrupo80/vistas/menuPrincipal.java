@@ -108,14 +108,9 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenuSalir.setText("Salir");
-        jMenuSalir.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jMenuSalirItemStateChanged(evt);
-            }
-        });
-        jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuSalirActionPerformed(evt);
+        jMenuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuSalirMouseClicked(evt);
             }
         });
         jMenuBar1.add(jMenuSalir);
@@ -173,27 +168,6 @@ public class menuPrincipal extends javax.swing.JFrame {
         escritorio.moveToFront(form);
     }//GEN-LAST:event_jMFormMateriasActionPerformed
 
-    private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jMenuSalirActionPerformed
-
-    private void jMenuSalirItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jMenuSalirItemStateChanged
-        // TODO add your handling code here:
-
-        if (!confirmado) {
-            //int opcion = JOptionPane.showConfirmDialog(jMenu1, "¿Estas seguro de que quieres salir?", "Confirmar salida", JOptionPane.YES_NO_CANCEL_OPTION);
-            int opcion = JOptionPane.showOptionDialog(null, "¿Está seguro de que desea salir?", "Confirmar salida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
-            if (opcion == JOptionPane.YES_OPTION) {
-                System.exit(0);
-
-            }
-        } else {
-            confirmado = true;
-
-        }
-    }//GEN-LAST:event_jMenuSalirItemStateChanged
-
     private void jMenuCargaDeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCargaDeNotasActionPerformed
         // TODO add your handling code here:
         escritorio.removeAll();
@@ -220,6 +194,21 @@ public class menuPrincipal extends javax.swing.JFrame {
         escritorio.add(formCon);
         escritorio.moveToFront(formCon);
     }//GEN-LAST:event_jMIMatXAlumActionPerformed
+
+    private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
+        // TODO add your handling code here:
+        if (!confirmado) {
+            //int opcion = JOptionPane.showConfirmDialog(jMenu1, "¿Estas seguro de que quieres salir?", "Confirmar salida", JOptionPane.YES_NO_CANCEL_OPTION);
+            int opcion = JOptionPane.showOptionDialog(null, "¿Está seguro de que desea salir?", "Confirmar salida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+            if (opcion == JOptionPane.YES_OPTION) {
+                System.exit(0);
+
+            }
+        } else {
+            confirmado = true;
+
+        }
+    }//GEN-LAST:event_jMenuSalirMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
