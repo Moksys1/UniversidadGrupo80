@@ -77,6 +77,12 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
             }
         });
 
+        jRBEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRBEstadoActionPerformed(evt);
+            }
+        });
+
         jBtnBuscar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jBtnBuscar.setText("Buscar");
         jBtnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -222,6 +228,10 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
         jTAño.setText("");
         jRBEstado.setSelected(false);
     }//GEN-LAST:event_jBtnNuevoActionPerformed
+
+    private void jRBEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRBEstadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
