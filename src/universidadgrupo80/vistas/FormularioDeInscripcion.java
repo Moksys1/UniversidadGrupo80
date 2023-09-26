@@ -228,6 +228,8 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una fila de la tabla.");
         }
+        
+        
     }//GEN-LAST:event_jBInscribirActionPerformed
 
     private void jBAnularInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAnularInsActionPerformed

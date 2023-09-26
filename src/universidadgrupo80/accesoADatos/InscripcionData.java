@@ -66,9 +66,9 @@ public class InscripcionData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setDouble(1, nota);
-            ps.setInt(2, idAlumno);
-            ps.setInt(3, idMateria);
+            ps.setInt(1, idAlumno);
+            ps.setInt(2, idMateria);
+            ps.setDouble(3, nota);
             int filas = ps.executeUpdate();
             if (filas > 0) {
                 JOptionPane.showMessageDialog(null, "Nota actulizada");
