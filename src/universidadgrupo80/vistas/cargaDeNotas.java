@@ -75,16 +75,32 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         jTNotas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Nota"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTNotas);
+        if (jTNotas.getColumnModel().getColumnCount() > 0) {
+            jTNotas.getColumnModel().getColumn(0).setResizable(false);
+            jTNotas.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         jBGuardar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jBGuardar.setText("Guardar");
