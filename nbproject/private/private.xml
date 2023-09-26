@@ -3,12 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/UniversidadGrupo80/UniversidadGrupo80/src/universidadgrupo80/entidades/Inscripcion.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/UniversidadGrupo80/UniversidadGrupo80/src/universidadgrupo80/accesoADatos/InscripcionData.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/UniversidadGrupo80/UniversidadGrupo80/src/universidadgrupo80/vistas/MenuInscripcion.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/UniversidadGrupo80/UniversidadGrupo80/src/universidadgrupo80/entidades/Alumno.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/UniversidadGrupo80/UniversidadGrupo80/src/universidadgrupo80/vistas/menuPrincipal.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/UniversidadGrupo80/UniversidadGrupo80/src/universidadgrupo80/accesoADatos/AlumnoData.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/entidades/Materia.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/accesoADatos/MateriaData.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/vistas/menuPrincipal.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/accesoADatos/InscripcionData.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/vistas/FormularioDeMaterias.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/accesoADatos/Conexion.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/vistas/FormularioDeConsulta.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/entidades/Alumno.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/accesoADatos/AlumnoData.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/UniversidadGrupo80.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/vistas/FormularioDeAlumno.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/vistas/FormularioDeInscripcion.java</file>
+            <file>file:/C:/Users/Moksys/Desktop/Archivos%20Java/PROYECTOFINAL/UniversidadGrupo80/src/universidadgrupo80/vistas/cargaDeNotas.java</file>
         </group>
     </open-files>
 </project-private>
