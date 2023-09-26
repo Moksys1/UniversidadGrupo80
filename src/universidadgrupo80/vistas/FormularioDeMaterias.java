@@ -177,11 +177,14 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
 
     private void jBtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBuscarActionPerformed
         // TODO add your handling code here:
-
+      try{
         Materia m = matData.BuscarMateria(Integer.parseInt(jTIdMateria.getText()));
         jTNombre.setText(m.getNombre());
         jTAño.setText(String.valueOf(m.getAño()));
         jRBEstado.setSelected(m.isEstado());
+        }catch(NumberFormatException ex){
+         JOptionPane.showMessageDialog(null, "Debe indicar numero de materia  ");
+      }
     }//GEN-LAST:event_jBtnBuscarActionPerformed
 
     private void jBtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalirActionPerformed
@@ -191,7 +194,7 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
 
     private void jBtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarActionPerformed
         // TODO add your handling code here:
-
+       try{
         String nombre = jTNombre.getText();
         int año = Integer.parseInt(jTAño.getText());
 
@@ -202,16 +205,21 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Alguno de los datos ingresados es incorrecto.");
         }
-
+       }catch(NumberFormatException ex){
+         JOptionPane.showMessageDialog(null, "Debe llenar los campos ");
+      }
     }//GEN-LAST:event_jBtnGuardarActionPerformed
 
     private void jBtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEliminarActionPerformed
         // TODO add your handling code here:
-
+       try{
         int idMateria = Integer.parseInt(jTIdMateria.getText());
         Materia MateriaEliminar = matData.BuscarMateria(idMateria);
 
         matData.eliminarMateria(MateriaEliminar.getIdMateria());
+        }catch(NumberFormatException ex){
+         JOptionPane.showMessageDialog(null, "Debe seleccionar una materia ");
+      }
     }//GEN-LAST:event_jBtnEliminarActionPerformed
 
     private void jBtnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNuevoActionPerformed

@@ -203,16 +203,20 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
         // TODO add your handling code here:
-
+      try{
         int documento = Integer.parseInt(jTDocumento.getText());
         String apellido = jTApellido.getText();
         String nombre = jTNombre.getText();
         LocalDate fechan = jDFechaNac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
         Alumno alu = new Alumno(documento, apellido, nombre, fechan, true);
-        System.out.println(alu);
-
         aludata.guardarAlumno(alu);
+      }catch(NumberFormatException ex){
+         JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");
+      }
+        
+        
+
+        
 
     }//GEN-LAST:event_jBGuardarActionPerformed
 
@@ -222,11 +226,14 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
     private void jEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEliminarActionPerformed
         // TODO add your handling code here:
+        try{
         int documento = Integer.parseInt(jTDocumento.getText());
         Alumno alumnoEliminar = aludata.BuscarAlumnoPorDni(documento);
 
         aludata.eliminarAlumno(alumnoEliminar.getIdAlumno());
-
+        }catch(NumberFormatException ex){
+         JOptionPane.showMessageDialog(null, "Debe Bucar un alumno o indicar su dni ");
+      }
     }//GEN-LAST:event_jEliminarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
