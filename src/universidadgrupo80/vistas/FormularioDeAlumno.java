@@ -232,7 +232,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
         aludata.eliminarAlumno(alumnoEliminar.getIdAlumno());
         }catch(NumberFormatException ex){
-         JOptionPane.showMessageDialog(null, "Debe Bucar un alumno o indicar su dni ");
+         JOptionPane.showMessageDialog(null, "Debe buscar un alumno o indicar su DNI.");
       }
     }//GEN-LAST:event_jEliminarActionPerformed
 
@@ -251,12 +251,16 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
-        Alumno buscarAlu = aludata.BuscarAlumnoPorDni(Integer.parseInt(jTDocumento.getText()));
+        try{
+            Alumno buscarAlu = aludata.BuscarAlumnoPorDni(Integer.parseInt(jTDocumento.getText()));
 
-        jTApellido.setText(buscarAlu.getApellido());
-        jTNombre.setText(buscarAlu.getNombre());
-        jDFechaNac.setDate(Date.valueOf(buscarAlu.getFechaNac()));
-        jRBestado.setSelected(buscarAlu.isActivo());
+            jTApellido.setText(buscarAlu.getApellido());
+            jTNombre.setText(buscarAlu.getNombre());
+            jDFechaNac.setDate(Date.valueOf(buscarAlu.getFechaNac()));
+            jRBestado.setSelected(buscarAlu.isActivo());
+        } catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "No ha ingresado ningun DNI a buscar");
+        }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jRBestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBestadoActionPerformed
