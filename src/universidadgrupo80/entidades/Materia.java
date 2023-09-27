@@ -14,7 +14,21 @@ public class Materia {
     private String nombre ;
     private int año;
     private boolean estado;
+    private double nota;
 
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+
+    public Materia(int IdMateria, String nombre, double nota) {
+        this.IdMateria = IdMateria;
+        this.nombre = nombre;
+        this.nota = nota;
+    }
     public Materia() {
     }
 

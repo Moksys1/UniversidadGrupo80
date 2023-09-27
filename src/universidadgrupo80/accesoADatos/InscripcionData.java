@@ -66,10 +66,16 @@ public class InscripcionData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+<<<<<<< Updated upstream
             ps.setInt(1, inscripcion.getAlumno().getIdAlumno());
             ps.setInt(2, inscripcion.getMateria().getIdMateria());
             ps.setDouble(3, inscripcion.getNota());
             ps.setInt(4, inscripcion.getIdInscripcion());
+=======
+            ps.setInt(2, idAlumno);
+            ps.setInt(3, idMateria);
+            ps.setDouble(1, nota);
+>>>>>>> Stashed changes
             int filas = ps.executeUpdate();
             if (ps.executeUpdate() == 1) {
                 JOptionPane.showMessageDialog(null, "Nota actualizada");
