@@ -185,15 +185,18 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
             Alumno a = (Alumno) jCBAlumnos.getSelectedItem();
             int idMateria = (Integer) modelo.getValueAt(filaSeleccionada, 0);
             String nombreMateria = (String) modelo.getValueAt(filaSeleccionada, 1);
-            int nota = (Integer) modelo.getValueAt(filaSeleccionada, 2);
-            
+
+            // Corrección: Obtener la nota desde un JComboBox
+            int nota = (Integer) jTNotas.getSelectedColumn();
+
             Materia m = new Materia(idMateria, nombreMateria, nota, true);
 
-            Inscripcion i = new Inscripcion(a, m, 0);
-            inscData.actulizarNota(idMateria, idMateria, nota);
+            Inscripcion i = inscData.ObtenerInscripcion(idMateria, idMateria);
+
+            // Corrección: Llamar al método actualizarNota con los parámetros correctos
+            inscData.actualizarNota(i);
+
             borrarFilaTabla();
-        } else {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila de la tabla.");
         }
     }//GEN-LAST:event_jBGuardarActionPerformed
 
@@ -216,7 +219,8 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     }
 
     private void cargarDatos(Materia mat) {
-        modelo.addRow(new Object[]{mat.getIdMateria(), mat.getNombre()});
+        Inscripcion ins = new Inscripcion();
+        modelo.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), ins.getNota()});
     }
 
     private void borrarFilaTabla() {
