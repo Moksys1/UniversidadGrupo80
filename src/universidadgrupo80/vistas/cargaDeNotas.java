@@ -238,7 +238,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         jtNotas.getColumnModel().getColumn(1).setPreferredWidth(150);
         jtNotas.getColumnModel().getColumn(2).setPreferredWidth(80);
 
-        JOptionPane.showMessageDialog(null, "Seleccione un alumno para modificar su nota");
+        System.out.println("Seleccione un alumno para modificar su nota");
     }
 
     public void cargarMaterias() {
