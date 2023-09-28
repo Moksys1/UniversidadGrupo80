@@ -286,6 +286,8 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
             }
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "No ha ingresado ningun DNI a buscar");
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "No existe este alumno.");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 

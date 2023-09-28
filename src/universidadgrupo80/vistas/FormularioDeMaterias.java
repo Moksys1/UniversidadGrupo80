@@ -200,6 +200,8 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
             jRBEstado.setSelected(m.isEstado());
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Debe indicar numero de materia  ");
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "No existe esta materia.");
         }
     }//GEN-LAST:event_jBtnBuscarActionPerformed
 
