@@ -19,7 +19,7 @@ public class AlumnoData {
     }
 
     public void guardarAlumno(Alumno alumno) {
-        String sql = "INSERT INTO alumno ( dni, apellido, nombre, fechaNac, estado)"
+        String sql = "INSERT INTO alumno (dni, apellido, nombre, fechaNac, estado)"
                 + "VALUES ( ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -83,8 +83,6 @@ public class AlumnoData {
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNac()));
             ps.setInt(5, alumno.getIdAlumno());
-            
-//            ps.executeUpdate();
             
             int exito = ps.executeUpdate();
             if (exito > 0) {

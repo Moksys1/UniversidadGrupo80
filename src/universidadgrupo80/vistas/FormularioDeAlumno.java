@@ -218,24 +218,12 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
         try {
             Alumno alumno = aludata.BuscarAlumno(Integer.parseInt(jtid.getText()));
-//            int documento = Integer.parseInt(jTDocumento.getText());
-//            String apellido = jTApellido.getText();
-//            String nombre = jTNombre.getText();
-//            LocalDate fechan = jDFechaNac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//            Alumno alu = new Alumno(documento, apellido, nombre, fechan, true);
             alumno.setDni(Integer.parseInt(jTDocumento.getText()));
             alumno.setApellido(jTApellido.getText());
             alumno.setNombre(jTNombre.getText());
             alumno.setFechaNac(jDFechaNac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             alumno.setActivo(true);
-            
-//            System.out.println(alumno.getIdAlumno() + "");
-//            System.out.println(alumno.getDni() + "");
-//            System.out.println(alumno.getApellido());
-//            System.out.println(alumno.getNombre());
-//            System.out.println(alumno.getFechaNac());
-//            System.out.println(alumno.isActivo());
-            
+
             aludata.modificarAlumno(alumno);
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");
@@ -261,22 +249,41 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        try {
+            //Alumno alumno = aludata.BuscarAlumno(Integer.parseInt(jtid.getText()));
+
+            Alumno alumno = new Alumno();
+
+            alumno.setDni(Integer.parseInt(jTDocumento.getText()));
+            alumno.setApellido(jTApellido.getText());
+            alumno.setNombre(jTNombre.getText());
+            alumno.setFechaNac(jDFechaNac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            alumno.setActivo(true);
+
+            aludata.guardarAlumno(alumno);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");
+        }
+
         jTDocumento.setText("");
         jTApellido.setText("");
         jTNombre.setText("");
         jDFechaNac.setDateFormatString("");
+        jtid.setText("");
+        jRBestado.setSelected(false);
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         try {
             Alumno buscarAlu = aludata.BuscarAlumnoPorDni(Integer.parseInt(jTDocumento.getText()));
-            
-            jtid.setText(buscarAlu.getIdAlumno() + "");
-            jTApellido.setText(buscarAlu.getApellido());
-            jTNombre.setText(buscarAlu.getNombre());
-            jDFechaNac.setDate(Date.valueOf(buscarAlu.getFechaNac()));
-            jRBestado.setSelected(buscarAlu.isActivo());
-            
+
+            if (buscarAlu != null) {
+                jtid.setText(buscarAlu.getIdAlumno() + "");
+                jTApellido.setText(buscarAlu.getApellido());
+                jTNombre.setText(buscarAlu.getNombre());
+                jDFechaNac.setDate(Date.valueOf(buscarAlu.getFechaNac()));
+                jRBestado.setSelected(buscarAlu.isActivo());
+            }
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "No ha ingresado ningun DNI a buscar");
         }
