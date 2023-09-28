@@ -6,10 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import static java.util.Collections.list;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 import universidadgrupo80.entidades.Alumno;
@@ -49,7 +45,7 @@ public class AlumnoData {
 
     public Alumno BuscarAlumno(int id) {
         Alumno alumno = null;
-        String sql = "SELECT dni, apellido, nombre, fechaNac FROM alumno WHERE idAlumno=? AND estado =1";
+        String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNac FROM alumno WHERE idAlumno=? AND estado =1";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -64,7 +60,7 @@ public class AlumnoData {
                 alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alumno.setActivo(true);
 
-                JOptionPane.showMessageDialog(null, "Alumno añadido con exito.");
+//                JOptionPane.showMessageDialog(null, "Alumno añadido con exito.");
             } else {
                 JOptionPane.showMessageDialog(null, "No existe este alumno.");
             }
@@ -77,20 +73,26 @@ public class AlumnoData {
     }
 
     public void modificarAlumno(Alumno alumno) {
-        String sql = "UPDATE alumno Set dni = ?, apellido = ?, nombre = ?, fechaNac = ? WHERE idAlumno = ?";
+        String sql = "UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNac = ? WHERE idAlumno = ?";
+        PreparedStatement ps = null;
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
+            
             ps.setInt(1, alumno.getDni());
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNac()));
             ps.setInt(5, alumno.getIdAlumno());
+            
+//            ps.executeUpdate();
+            
             int exito = ps.executeUpdate();
-            if (exito == 1) {
+            if (exito > 0) {
                 JOptionPane.showMessageDialog(null, "Modificado correctamente");
             } else {
                 JOptionPane.showMessageDialog(null, "El alumno buscado no existe");
             }
+            ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno");
         }
