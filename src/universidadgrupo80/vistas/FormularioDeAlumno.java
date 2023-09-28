@@ -228,6 +228,13 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");
         }
+        
+        jTDocumento.setText("");
+        jTApellido.setText("");
+        jTNombre.setText("");
+        jDFechaNac.setDateFormatString("");
+        jtid.setText("");
+        jRBestado.setSelected(false);
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jDFechaNacPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDFechaNacPropertyChange
