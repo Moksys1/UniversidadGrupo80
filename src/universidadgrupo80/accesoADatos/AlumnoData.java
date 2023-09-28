@@ -139,15 +139,16 @@ public class AlumnoData {
         return alumno;
     }
 
-    public List<Alumno> listarAlumnos() {
-        Alumno alumno = null;
-        String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNac FROM alumno WHERE estado =1";
+    public ArrayList<Alumno> listarAlumnos() {
+//        Alumno alumno = null;
+        
         ArrayList<Alumno> alumnos = new ArrayList<>();
         try {
+            String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNac FROM alumno WHERE estado =1 ORDER BY apellido";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                alumno = new Alumno();
+                Alumno alumno = new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));

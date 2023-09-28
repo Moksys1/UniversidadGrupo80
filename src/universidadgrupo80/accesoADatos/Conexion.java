@@ -20,7 +20,7 @@ public class Conexion {
     public static final String DB = "universidadgrupo80";
     public static final String USUARIO = "root";
     public static final String PASSWORD = "";
-    public static Connection conexion;
+    public static Connection conexion = null;
 
     private Conexion() {
     }
@@ -31,7 +31,7 @@ public class Conexion {
                 Class.forName("org.mariadb.jdbc.Driver");
                 conexion = DriverManager.getConnection(URL+DB, USUARIO, PASSWORD);
 
-                JOptionPane.showMessageDialog(null, "¡Conexion exitosa!");
+//                JOptionPane.showMessageDialog(null, "¡Conexion exitosa!");
 
             } catch (ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "Error al cargar los drivers ");

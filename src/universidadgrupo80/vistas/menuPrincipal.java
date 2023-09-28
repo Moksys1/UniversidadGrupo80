@@ -1,6 +1,8 @@
 package universidadgrupo80.vistas;
 
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import universidadgrupo80.accesoADatos.Conexion;
 
 public class menuPrincipal extends javax.swing.JFrame {
 
@@ -8,6 +10,16 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     public menuPrincipal() {
         initComponents();
+        
+        // Realizo la coneccion a la DB, si fue exitosa agrego al titulo
+        // conectado para no tener ese molesto dialogo de conexion ;)
+        Connection con = Conexion.getConnection();
+        // Si la conexion fue exitosa cambio el titulo del Frame del menu
+        if (con != null) {
+            this.setTitle("Sistema de Gestión para la Universidad de La Punta - Estado: Conectado");
+        } else {
+            this.setTitle("Sistema de Gestión para la Universidad de La Punta - Estado: Error");
+        }
     }
 
     @SuppressWarnings("unchecked")

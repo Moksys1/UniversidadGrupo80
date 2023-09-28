@@ -222,7 +222,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
             int anio = (Integer) modelo.getValueAt(filaSeleccionada, 2);
             Materia m = new Materia(idMateria, nombreMateria, anio, true);
 
-            Inscripcion i = new Inscripcion(a, m, 0);
+            Inscripcion i = new Inscripcion(0, a, m);
             inscData.guardarInscripcion(i);
             borrarFilaTabla();
         } else {

@@ -60,30 +60,27 @@ public class InscripcionData {
         }
     }
 
-    public void actualizarNota(Inscripcion inscripcion) {
+    public void actualizarNota(double nota, int idAlumno, int idMateria) {
 
-        String sql = "UPDATE inscripcion SET idAlumno= ?, idMateria=?, nota = ? WHERE idInscripcion = ?";
+        String sql = "UPDATE inscripcion SET nota = ? WHERE idAlumno = ? AND idMateria = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setInt(1, inscripcion.getAlumno().getIdAlumno());
-            ps.setInt(2, inscripcion.getMateria().getIdMateria());
-            ps.setDouble(3, inscripcion.getNota());
-            ps.setInt(4, inscripcion.getIdInscripcion());
-
-//            ps.setInt(2, idAlumno);
-//            ps.setInt(3, idMateria);
-//            ps.setDouble(1, nota);
+            ps.setDouble(1, nota);
+            ps.setInt(2, idAlumno);
+            ps.setInt(3, idMateria);
+            
 
             int filas = ps.executeUpdate();
-            if (ps.executeUpdate() == 1) {
+            System.out.println(filas);
+            if (filas > 0) {
                 JOptionPane.showMessageDialog(null, "Nota actualizada");
             }
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al accerder a la tabla Inscripcion");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion");
 
         }
 
@@ -202,6 +199,7 @@ public class InscripcionData {
 
         return materias;
 
+        
     }
 
     public List<Materia> obtenerMateriasNOCursadas(int idAlumno) {
@@ -266,28 +264,73 @@ public class InscripcionData {
 
     }
 
-    public Inscripcion ObtenerInscripcion(int idAlumno, int idMateria) {
-        Inscripcion inscripcion = null;
-        String sql = "SELECT idInscripcion FROM inscripcion WHERE idAlumno = ? AND idMateria = ?";
-        PreparedStatement ps = null;
+//    public Inscripcion ObtenerInscripcion(int idAlumno, int idMateria) {
+//        Inscripcion inscripcion = null;
+//        String sql = "SELECT idInscripcion FROM inscripcion WHERE idAlumno = ? AND idMateria = ?";
+//        PreparedStatement ps = null;
+//        try {
+//            ps = con.prepareStatement(sql);
+//            ResultSet rs = ps.executeQuery();
+//            if (rs.next()) {
+//                inscripcion = new Inscripcion();
+//                inscripcion.setIdInscripcion(rs.getInt("idInscripcion"));
+//
+////                ps.setInt(1, idAlumno);
+////                ps.setInt(2, idMateria);
+//                
+//            } else{
+//                JOptionPane.showMessageDialog(null, "No existe esa inscripcion.");
+//            }
+//            ps.close();
+//
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
+//        }
+//        return inscripcion;
+//    }
+    
+    public ArrayList<Object[]> obtenerMateriasCursadasAriel(int idAlumno) {
+
+        ArrayList<Object[]> listaDeMateriasInscripto = new ArrayList<>();
+
         try {
-            ps = con.prepareStatement(sql);
+            String sql = "SELECT i.idMateria, i.nota, m.nombre, m.año FROM inscripcion AS i JOIN materia AS m ON (i.idMateria = m.idMateria) WHERE i.idAlumno = ?";
+
+            // Preparo la consulta
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            // Para obtener el ID del alumno
+            ps.setInt(1, idAlumno);
+
+            // Ejecuto la consulta
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                inscripcion = new Inscripcion();
-                inscripcion.setIdInscripcion(rs.getInt("idInscripcion"));
 
-//                ps.setInt(1, idAlumno);
-//                ps.setInt(2, idMateria);
-                
-            } else{
-                JOptionPane.showMessageDialog(null, "No existe esa inscripcion.");
+            // Recorro el rs mientras tenga elementos
+            while (rs.next()) {
+                // Creo el nuevo objeto que hereda de Materia
+                Materia materia = new Materia();
+                Inscripcion ins = new Inscripcion();
+
+                // Le cargo los valores que necesito
+                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                ins.setNota(rs.getDouble("nota"));
+
+                // Agrego la materia al array materia
+                Object[] fila ={materia.getIdMateria(),materia.getNombre(),ins.getNota()};
+                listaDeMateriasInscripto.add(fila);
             }
-            ps.close();
 
+            // Cierro la consulta
+            ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
+            // En caso de que explote la consulta se lo informo al pobre
+            // y desafortunado DataEntry
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia: " + ex.getMessage());
         }
-        return inscripcion;
+
+        // Si todo salio bien, entonces retorno la lista con las materias que
+        // posea la tabla materia en la DB universidadulp
+        return listaDeMateriasInscripto;
     }
 }
