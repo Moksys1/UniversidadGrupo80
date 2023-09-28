@@ -46,7 +46,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     private ArrayList<Alumno> listarAlumnos;
     private int idAlu;
     private double nuevaNota;
-    
+
 //    AlumnoData aluData = new AlumnoData();
 //    MateriaData mateData = new MateriaData();
 //    InscripcionData inscData;
@@ -58,13 +58,12 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 //    Materia mat = new Materia();
 //    Inscripcion ins = new Inscripcion();
 //    private int idAlu;
-
     /**
      * Creates new form cargaDeNotas
      */
     public cargaDeNotas() {
         initComponents();
-        
+
         // Inicializo el acceso a los datos de las tablas alumno e inscripción
         aluData = new AlumnoData();
         insData = new InscripcionData();
@@ -92,7 +91,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         anadeListenerAlModelo();
 
         jbGuardar.setEnabled(false);
-        
+
 //        inscData = new InscripcionData();
 //        aluData = new AlumnoData();
 //        alumm = aluData.listarAlumnos();
@@ -225,22 +224,22 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-        // TODO add your handling code here:
         int filas = jtNotas.getRowCount();
-//        if (filas != -1) {
         for (int fila = 0; fila < filas; fila++) {
             insData.actualizarNota(
                     Double.parseDouble(jtNotas.getValueAt(fila, 2).toString()),
                     idAlu,
                     Integer.parseInt(jtNotas.getValueAt(fila, 0).toString())
             );
-            System.out.println("--------------------------------------------");
-            System.out.println(Double.parseDouble(jtNotas.getValueAt(fila, 2).toString()));
-            System.out.println(idAlu);
-            System.out.println(Integer.parseInt(jtNotas.getValueAt(fila, 0).toString()));
-            System.out.println("--------------------------------------------");
+//            System.out.println("--------------------------------------------");
+//            System.out.println(Double.parseDouble(jtNotas.getValueAt(fila, 2).toString()));
+//            System.out.println(idAlu);
+//            System.out.println(Integer.parseInt(jtNotas.getValueAt(fila, 0).toString()));
+//            System.out.println("--------------------------------------------");
+            
         }
         jbGuardar.setEnabled(false);
+        JOptionPane.showMessageDialog(null, "Nota(s) Actualizada(s).");
 
 //            Alumno a = (Alumno) jCBAlumnos.getSelectedItem();
 //            int idMateria = (Integer) modelo.getValueAt(filaSeleccionada, 0);
@@ -263,7 +262,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 
     private void jcbAlumnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbAlumnoItemStateChanged
         // TODO add your handling code here:
-        
+
         cargarMaterias();
     }//GEN-LAST:event_jcbAlumnoItemStateChanged
 
@@ -333,8 +332,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 //        }
 ////        inscData.obtenerMateriasCursadas(selec.getIdAlumno()).forEach(materia -> cargarDatos(materia));
 //    }
-    
-     public void cargarAlumnos() {
+    public void cargarAlumnos() {
         // Limpio el ComboBox
         jcbAlumno.removeAllItems();
 

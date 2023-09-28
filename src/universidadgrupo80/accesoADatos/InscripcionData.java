@@ -73,10 +73,10 @@ public class InscripcionData {
             
 
             int filas = ps.executeUpdate();
-            System.out.println(filas);
-            if (filas > 0) {
-                JOptionPane.showMessageDialog(null, "Nota actualizada");
-            }
+//            System.out.println(filas);
+//            if (filas > 0) {
+//                JOptionPane.showMessageDialog(null, "Nota actualizada");
+//            }
             ps.close();
 
         } catch (SQLException ex) {

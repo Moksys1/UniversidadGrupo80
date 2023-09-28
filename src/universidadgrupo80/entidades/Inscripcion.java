@@ -1,18 +1,17 @@
-
 package universidadgrupo80.entidades;
 
 public class Inscripcion {
-    
+
     private int idInscripcion;
+    private double nota;
     private Alumno alumno;
     private Materia materia;
-    private double nota;
 
-    public Inscripcion(int idIncsripcion, Alumno alumno, Materia materia, double nota) {
+    public Inscripcion(int idIncsripcion, double nota, Alumno alumno, Materia materia) {
         this.idInscripcion = idInscripcion;
+        this.nota = nota;
         this.alumno = alumno;
         this.materia = materia;
-        this.nota = nota;
     }
 
     public Inscripcion(double nota, Alumno alumno, Materia materia) {
@@ -64,8 +63,7 @@ public class Inscripcion {
     public String toString() {
         String insc = idInscripcion + " " + alumno.getApellido() + ", " + alumno.getNombre() + " " + materia.getNombre();
         return insc;
-        
+
     }
-    
-    
+
 }
