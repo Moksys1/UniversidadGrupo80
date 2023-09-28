@@ -1,5 +1,6 @@
 package universidadgrupo80.vistas;
 
+import java.awt.Dimension;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import universidadgrupo80.accesoADatos.Conexion;
@@ -10,7 +11,6 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     public menuPrincipal() {
         initComponents();
-        
         // Realizo la coneccion a la DB, si fue exitosa agrego al titulo
         // conectado para no tener ese molesto dialogo de conexion ;)
         Connection con = Conexion.getConnection();
@@ -55,11 +55,15 @@ public class menuPrincipal extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+            .addGap(0, 669, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Alumno");
+        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
+        jMenu1.setText("Alumno");
+        jMenu1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        jMenuAlumno.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jMenuAlumno.setText("Formulario de Alumno");
         jMenuAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +75,9 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Materia");
+        jMenu2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
+        jMFormMaterias.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jMFormMaterias.setText("Formulario de Materia");
         jMFormMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,12 +89,14 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         cargaDeNotas.setText("Administracion ");
+        cargaDeNotas.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         cargaDeNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cargaDeNotasActionPerformed(evt);
             }
         });
 
+        jMenuInscripcion.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jMenuInscripcion.setText("Manejo de Inscripciones");
         jMenuInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +105,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         });
         cargaDeNotas.add(jMenuInscripcion);
 
+        jMenuCargaDeNotas.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jMenuCargaDeNotas.setText("Manipulacion de Notas");
         jMenuCargaDeNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +117,9 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(cargaDeNotas);
 
         jMenu5.setText("Consultas");
+        jMenu5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
+        jMIMatXAlum.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jMIMatXAlum.setText("Alumnos por Materia");
         jMIMatXAlum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +131,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenuSalir.setText("Salir");
+        jMenuSalir.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jMenuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenuSalirMouseClicked(evt);
@@ -145,80 +157,92 @@ public class menuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlumnoActionPerformed
-        // TODO add your handling code here:
-
         escritorio.removeAll();
         escritorio.repaint();
 
         FormularioDeAlumno fdl = new FormularioDeAlumno();
         fdl.setVisible(true);
         escritorio.add(fdl);
+        // Para centrar el JInternalFrame en el escritorio ---------------------
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = fdl.getSize();
+        fdl.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        // ---------------------------------------------------------------------
         escritorio.moveToFront(fdl);
     }//GEN-LAST:event_jMenuAlumnoActionPerformed
 
     private void jMenuInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuInscripcionActionPerformed
-        // TODO add your handling code here:
-
         escritorio.removeAll();
         escritorio.repaint();
 
         FormularioDeInscripcion inscripcion = new FormularioDeInscripcion();
         inscripcion.setVisible(true);
         escritorio.add(inscripcion);
+        // Para centrar el JInternalFrame en el escritorio ---------------------
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = inscripcion.getSize();
+        inscripcion.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        // ---------------------------------------------------------------------
         escritorio.moveToFront(inscripcion);
     }//GEN-LAST:event_jMenuInscripcionActionPerformed
 
     private void jMFormMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormMateriasActionPerformed
-        // TODO add your handling code here:
-
         escritorio.removeAll();
         escritorio.repaint();
 
         FormularioDeMaterias form = new FormularioDeMaterias();
         form.setVisible(true);
         escritorio.add(form);
+        // Para centrar el JInternalFrame en el escritorio ---------------------
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = form.getSize();
+        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        // ---------------------------------------------------------------------
         escritorio.moveToFront(form);
     }//GEN-LAST:event_jMFormMateriasActionPerformed
 
     private void jMenuCargaDeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCargaDeNotasActionPerformed
-        // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
 
         cargaDeNotas notitas = new cargaDeNotas();
         notitas.setVisible(true);
         escritorio.add(notitas);
+        // Para centrar el JInternalFrame en el escritorio ---------------------
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = notitas.getSize();
+        notitas.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        // ---------------------------------------------------------------------
         escritorio.moveToFront(notitas);
-//    
     }//GEN-LAST:event_jMenuCargaDeNotasActionPerformed
 
     private void cargaDeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaDeNotasActionPerformed
-
     }//GEN-LAST:event_cargaDeNotasActionPerformed
 
     private void jMIMatXAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIMatXAlumActionPerformed
-        // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
 
         FormularioDeConsulta formCon = new FormularioDeConsulta();
         formCon.setVisible(true);
         escritorio.add(formCon);
+        // Para centrar el JInternalFrame en el escritorio ---------------------
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = formCon.getSize();
+        formCon.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        // ---------------------------------------------------------------------
         escritorio.moveToFront(formCon);
     }//GEN-LAST:event_jMIMatXAlumActionPerformed
 
     private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
-        // TODO add your handling code here:
         if (!confirmado) {
             //int opcion = JOptionPane.showConfirmDialog(jMenu1, "¿Estas seguro de que quieres salir?", "Confirmar salida", JOptionPane.YES_NO_CANCEL_OPTION);
             int opcion = JOptionPane.showOptionDialog(null, "¿Está seguro de que desea salir?", "Confirmar salida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
             if (opcion == JOptionPane.YES_OPTION) {
                 System.exit(0);
-
             }
         } else {
             confirmado = true;
-
         }
     }//GEN-LAST:event_jMenuSalirMouseClicked
 

@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package universidadgrupo80.vistas;
 
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -15,15 +9,8 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import universidadgrupo80.accesoADatos.AlumnoData;
 import universidadgrupo80.accesoADatos.InscripcionData;
-import universidadgrupo80.accesoADatos.MateriaData;
 import universidadgrupo80.entidades.Alumno;
-import universidadgrupo80.entidades.Inscripcion;
-import universidadgrupo80.entidades.Materia;
 
-/**
- *
- * @author Usuario
- */
 public class cargaDeNotas extends javax.swing.JInternalFrame {
 
     // Declaro e Inicializo el modelo que hereda de DefaultTableModel
@@ -47,20 +34,6 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     private int idAlu;
     private double nuevaNota;
 
-//    AlumnoData aluData = new AlumnoData();
-//    MateriaData mateData = new MateriaData();
-//    InscripcionData inscData;
-//    List<Alumno> alumm = new ArrayList<>();
-//
-//    DefaultTableModel modelo = new DefaultTableModel();
-//
-//    Alumno alumn = new Alumno();
-//    Materia mat = new Materia();
-//    Inscripcion ins = new Inscripcion();
-//    private int idAlu;
-    /**
-     * Creates new form cargaDeNotas
-     */
     public cargaDeNotas() {
         initComponents();
 
@@ -92,14 +65,6 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 
         jbGuardar.setEnabled(false);
 
-//        inscData = new InscripcionData();
-//        aluData = new AlumnoData();
-//        alumm = aluData.listarAlumnos();
-//        for (Alumno alumn : alumm) {
-//            this.jCBAlumnos.addItem(alumn);
-//        }
-//        armarCabecera();
-//        cargarDatos(mat);
     }
 
     /**
@@ -119,11 +84,15 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         jbGuardar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        setTitle("Carga De Notas");
+        setPreferredSize(new java.awt.Dimension(600, 500));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Carga de notas");
+        jLabel1.setPreferredSize(new java.awt.Dimension(173, 32));
 
-        jcbAlumno.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jcbAlumno.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jcbAlumno.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcbAlumnoItemStateChanged(evt);
@@ -135,7 +104,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Seleccionar alumno:");
 
         jtNotas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -148,12 +117,8 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane1.setViewportView(jtNotas);
-        if (jtNotas.getColumnModel().getColumnCount() > 0) {
-            jtNotas.getColumnModel().getColumn(0).setResizable(false);
-            jtNotas.getColumnModel().getColumn(2).setResizable(false);
-        }
 
-        jbGuardar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbGuardar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +126,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
             }
         });
 
-        jBSalir.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jBSalir.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,35 +138,36 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jbGuardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBSalir)
-                .addGap(77, 77, 77))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBSalir))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalir)
                     .addComponent(jbGuardar))
@@ -212,14 +178,9 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoActionPerformed
-        // TODO add your handling code here
-//        aluData.listarAlumnos();
-//        alumn = (Alumno) jCBAlumnos.getSelectedItem();
-//        cargarMaterias();
     }//GEN-LAST:event_jcbAlumnoActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
 
@@ -231,41 +192,14 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
                     idAlu,
                     Integer.parseInt(jtNotas.getValueAt(fila, 0).toString())
             );
-//            System.out.println("--------------------------------------------");
-//            System.out.println(Double.parseDouble(jtNotas.getValueAt(fila, 2).toString()));
-//            System.out.println(idAlu);
-//            System.out.println(Integer.parseInt(jtNotas.getValueAt(fila, 0).toString()));
-//            System.out.println("--------------------------------------------");
-            
         }
         jbGuardar.setEnabled(false);
         JOptionPane.showMessageDialog(null, "Nota(s) Actualizada(s).");
-
-//            Alumno a = (Alumno) jCBAlumnos.getSelectedItem();
-//            int idMateria = (Integer) modelo.getValueAt(filaSeleccionada, 0);
-//            String nombreMateria = (String) modelo.getValueAt(filaSeleccionada, 1);
-//
-//            // Corrección: Obtener la nota desde un JComboBox
-//            int nota = (Integer) jTNotas.getSelectedColumn();
-//
-//            Materia m = new Materia(idMateria, nombreMateria, nota, true);
-//            Inscripcion ins = new Inscripcion(nota);
-//
-//            Inscripcion i = (Inscripcion) inscData.ObtenerInscripcion(a.getIdAlumno(), idMateria);
-//
-//            // Corrección: Llamar al método actualizarNota con los parámetros correctos
-//            inscData.actualizarNota(i);
-//
-//            borrarFilaTabla();
-//        }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jcbAlumnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbAlumnoItemStateChanged
-        // TODO add your handling code here:
-
         cargarMaterias();
     }//GEN-LAST:event_jcbAlumnoItemStateChanged
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSalir;
@@ -277,61 +211,6 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtNotas;
     // End of variables declaration//GEN-END:variables
 
-//    private void armarCabecera() {
-//        modelo.addColumn("Codigo");
-//        modelo.addColumn("Nombre");
-//        modelo.addColumn("Nota");
-//        jTNotas.setModel(modelo);
-//    }
-//
-//    private void cargarDatos(Materia mat) {
-//        borrarFilaTabla();
-//
-////        Inscripcion ins = new Inscripcion();
-////        modelo.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), ins.getNota()});
-//        Alumno seleccionada = (Alumno) jCBAlumnos.getSelectedItem();
-//        idAlu = seleccionada.getIdAlumno();
-//        if (seleccionada != null) {
-//            ArrayList<Object[]> lista = (ArrayList) inscData.obtenerMateriasCursadas(idAlu);
-//
-//            for (Object[] fila : lista) {
-//                modelo.addRow(fila);
-//            }
-//        }
-//    }
-//
-//    private void borrarFilaTabla() {
-////        int indice = modelo.getRowCount() - 1;
-////
-////        for (int i = indice; i >= 0; i--) {
-////            modelo.removeRow(i);
-////        }
-//
-//        if (modelo != null) {
-//            int a = modelo.getRowCount() - 1;
-//
-//            if (modelo.getRowCount() > 0) {
-//                for (int i = a; i >= 0; i--) {
-//                    modelo.removeRow(i);
-//                }
-//            }
-//        }
-//    }
-//
-//    private void cargarMateria() {
-//        borrarFilaTabla();
-//        
-//        Alumno selec = (Alumno) jCBAlumnos.getSelectedItem();
-//        
-//        idAlu = selec.getIdAlumno();
-//        
-//        ArrayList<Object[]> lista = (ArrayList) inscData.obtenerMateriasCursadasAriel(idAlu);
-//        
-//        for(Object[] fila : lista){
-//            modelo.addRow(fila);
-//        }
-////        inscData.obtenerMateriasCursadas(selec.getIdAlumno()).forEach(materia -> cargarDatos(materia));
-//    }
     public void cargarAlumnos() {
         // Limpio el ComboBox
         jcbAlumno.removeAllItems();
@@ -359,7 +238,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         jtNotas.getColumnModel().getColumn(1).setPreferredWidth(150);
         jtNotas.getColumnModel().getColumn(2).setPreferredWidth(80);
 
-//        MensajeSB(1, "Seleccione un alumno para modificar su nota");
+        JOptionPane.showMessageDialog(null, "Seleccione un alumno para modificar su nota");
     }
 
     public void cargarMaterias() {
@@ -376,8 +255,8 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
             for (Object[] fila : lista) {
                 modelo.addRow(fila);
             }
-//        } else {
-//            MensajeSB(1, "Seleccione primero un alumno");
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione primero un alumno");
         }
     }
 
@@ -425,11 +304,11 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
                         jbGuardar.setEnabled(true);
                     }
                 } else {
-//                    MensajeSB(1, "El valor ingresado no es válido(0-10)");
+                    JOptionPane.showMessageDialog(null, "El valor ingresado no es válido(0-10)");
                     jtNotas.setValueAt(nuevaNota, fila, columna);
                 }
             } catch (NumberFormatException e) {
-//                MensajeSB(1, "El valor ingresado no es válido");
+                JOptionPane.showMessageDialog(null, "El valor ingresado no es válido");
                 jtNotas.setValueAt(nuevaNota, fila, columna);
             }
         }
@@ -450,24 +329,4 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
             }
         });
     }
-
-//    public void MensajeSB(int color, String mensaje) {
-//        // Los valores pueden variar de 0 a 255
-//        if (color == 1) {
-//            // Si el color es igual a 1 entonces es = a verde
-//            // En este caso Red = 0, Green = 153, Blue = 102.
-//            jlStatusBar.setForeground(new Color(0, 153, 102));
-//        } else if (color == 2) {
-//            // Si el color es igual a 2 entonces es = a rojo
-//            // Los valores pueden variar de 0 a 255. En este caso Red = 153, Green = 51, Blue = 0.
-//            jlStatusBar.setForeground(new Color(255, 50, 0));
-//        } else if (color == 3) {
-//            // Usado al iniciar el Form para que no se vea el texto dummy 45,65,88
-//            jlStatusBar.setForeground(new Color(45, 65, 88));
-//        }
-//        // Aquí cargo el texto del mensaje en el Label
-//        // Si el texto del mensaje esta vacio entonces no muestro texto en
-//        // el Label pero limpio el texto anterior que pueda haber quedado
-//        jlStatusBar.setText(mensaje);
-//    }
 }

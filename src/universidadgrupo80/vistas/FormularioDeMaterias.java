@@ -1,8 +1,6 @@
 package universidadgrupo80.vistas;
 
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import universidadgrupo80.accesoADatos.MateriaData;
 import universidadgrupo80.entidades.Materia;
@@ -34,8 +32,11 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
         jBtnBuscar = new javax.swing.JButton();
         jBtnNuevo = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
-        jBtnEliminar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        setTitle("Materias");
+
+        jBtnEliminar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jBtnEliminar.setText("Eliminar");
         jBtnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,10 +44,10 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel1.setText("Codigo:");
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setText("Código:");
 
-        jBtnGuardar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jBtnGuardar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jBtnGuardar.setText("Guardar");
         jBtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,7 +55,7 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
             }
         });
 
-        jBtnSalir.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jBtnSalir.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jBtnSalir.setText("Salir");
         jBtnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,28 +63,35 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Nombre:");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel3.setText("Año:");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel4.setText("Estado:");
 
+        jTIdMateria.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTIdMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTIdMateriaActionPerformed(evt);
             }
         });
 
+        jTNombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        jTAño.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        jRBEstado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jRBEstado.setText("Activo");
         jRBEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRBEstadoActionPerformed(evt);
             }
         });
 
-        jBtnBuscar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jBtnBuscar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jBtnBuscar.setText("Buscar");
         jBtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +99,7 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
             }
         });
 
-        jBtnNuevo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jBtnNuevo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jBtnNuevo.setText("Nuevo");
         jBtnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,138 +107,134 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Materias");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addComponent(jBtnBuscar)
-                        .addGap(49, 49, 49))
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTAño, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRBEstado))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jBtnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jBtnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jBtnGuardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBtnSalir)
-                .addGap(30, 30, 30))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jRBEstado)
+                                .addComponent(jTNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                                .addComponent(jTAño))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jBtnNuevo)
+                        .addGap(50, 50, 50)
+                        .addComponent(jBtnEliminar)
+                        .addGap(56, 56, 56)
+                        .addComponent(jBtnGuardar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jBtnBuscar)
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jBtnSalir)
+                        .addGap(30, 30, 30))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
                     .addComponent(jTIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnBuscar)
-                    .addComponent(jLabel1))
-                .addGap(27, 27, 27)
+                    .addComponent(jBtnBuscar))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBtnNuevo)
-                            .addComponent(jBtnEliminar)
-                            .addComponent(jBtnGuardar)
-                            .addComponent(jBtnSalir))
-                        .addGap(53, 53, 53))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRBEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jLabel4)
+                    .addComponent(jRBEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnNuevo)
+                    .addComponent(jBtnEliminar)
+                    .addComponent(jBtnGuardar)
+                    .addComponent(jBtnSalir))
+                .addGap(53, 53, 53))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTIdMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIdMateriaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jTIdMateriaActionPerformed
 
     private void jBtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBuscarActionPerformed
-        // TODO add your handling code here:
-      try{
-        Materia m = matData.BuscarMateria(Integer.parseInt(jTIdMateria.getText()));
-        jTNombre.setText(m.getNombre());
-        jTAño.setText(String.valueOf(m.getAño()));
-        jRBEstado.setSelected(m.isEstado());
-        }catch(NumberFormatException ex){
-         JOptionPane.showMessageDialog(null, "Debe indicar numero de materia  ");
-      }
+        try {
+            Materia m = matData.BuscarMateria(Integer.parseInt(jTIdMateria.getText()));
+            jTNombre.setText(m.getNombre());
+            jTAño.setText(String.valueOf(m.getAño()));
+            jRBEstado.setSelected(m.isEstado());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Debe indicar numero de materia  ");
+        }
     }//GEN-LAST:event_jBtnBuscarActionPerformed
 
     private void jBtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalirActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jBtnSalirActionPerformed
 
     private void jBtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarActionPerformed
-        // TODO add your handling code here:
-       try{
-        String nombre = jTNombre.getText();
-        int año = Integer.parseInt(jTAño.getText());
-
-        Materia mates = new Materia(nombre, año, true);
-
         try {
-            matData.guardarMateria(mates);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Alguno de los datos ingresados es incorrecto.");
+            String nombre = jTNombre.getText();
+            int año = Integer.parseInt(jTAño.getText());
+
+            Materia mates = new Materia(nombre, año, true);
+            try {
+                matData.guardarMateria(mates);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Alguno de los datos ingresados es incorrecto.");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Debe llenar los campos ");
         }
-       }catch(NumberFormatException ex){
-         JOptionPane.showMessageDialog(null, "Debe llenar los campos ");
-      }
     }//GEN-LAST:event_jBtnGuardarActionPerformed
 
     private void jBtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEliminarActionPerformed
-        // TODO add your handling code here:
-       try{
-        int idMateria = Integer.parseInt(jTIdMateria.getText());
-        Materia MateriaEliminar = matData.BuscarMateria(idMateria);
+        try {
+            int idMateria = Integer.parseInt(jTIdMateria.getText());
+            Materia MateriaEliminar = matData.BuscarMateria(idMateria);
 
-        matData.eliminarMateria(MateriaEliminar.getIdMateria());
-        }catch(NumberFormatException ex){
-         JOptionPane.showMessageDialog(null, "Debe seleccionar una materia ");
-      }
+            matData.eliminarMateria(MateriaEliminar.getIdMateria());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una materia ");
+        }
     }//GEN-LAST:event_jBtnEliminarActionPerformed
 
     private void jBtnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNuevoActionPerformed
-        // TODO add your handling code here:
-
         jTIdMateria.setText("");
         jTNombre.setText("");
         jTAño.setText("");
@@ -238,9 +242,7 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBtnNuevoActionPerformed
 
     private void jRBEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBEstadoActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jRBEstadoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnBuscar;
@@ -254,6 +256,7 @@ public class FormularioDeMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JRadioButton jRBEstado;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTAño;
     private javax.swing.JTextField jTIdMateria;
     private javax.swing.JTextField jTNombre;
