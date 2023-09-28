@@ -66,16 +66,16 @@ public class InscripcionData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-<<<<<<< Updated upstream
+
             ps.setInt(1, inscripcion.getAlumno().getIdAlumno());
             ps.setInt(2, inscripcion.getMateria().getIdMateria());
             ps.setDouble(3, inscripcion.getNota());
             ps.setInt(4, inscripcion.getIdInscripcion());
-=======
-            ps.setInt(2, idAlumno);
-            ps.setInt(3, idMateria);
-            ps.setDouble(1, nota);
->>>>>>> Stashed changes
+
+//            ps.setInt(2, idAlumno);
+//            ps.setInt(3, idMateria);
+//            ps.setDouble(1, nota);
+
             int filas = ps.executeUpdate();
             if (ps.executeUpdate() == 1) {
                 JOptionPane.showMessageDialog(null, "Nota actualizada");
@@ -268,7 +268,7 @@ public class InscripcionData {
 
     public Inscripcion ObtenerInscripcion(int idAlumno, int idMateria) {
         Inscripcion inscripcion = null;
-        String sql = " SELECT idInscripcion FROM inscripcion WHERE idAlumno = ? AND idMateria = ?";
+        String sql = "SELECT idInscripcion FROM inscripcion WHERE idAlumno = ? AND idMateria = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -277,8 +277,9 @@ public class InscripcionData {
                 inscripcion = new Inscripcion();
                 inscripcion.setIdInscripcion(rs.getInt("idInscripcion"));
 
-                ps.setInt(1, idAlumno);
-                ps.setInt(2, idMateria);
+//                ps.setInt(1, idAlumno);
+//                ps.setInt(2, idMateria);
+                
             } else{
                 JOptionPane.showMessageDialog(null, "No existe esa inscripcion.");
             }

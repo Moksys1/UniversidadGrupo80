@@ -30,6 +30,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 
     Alumno alumn = new Alumno();
     Materia mat = new Materia();
+    Inscripcion ins = new Inscripcion();
 
     /**
      * Creates new form cargaDeNotas
@@ -190,8 +191,9 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
             int nota = (Integer) jTNotas.getSelectedColumn();
 
             Materia m = new Materia(idMateria, nombreMateria, nota, true);
+            Inscripcion ins = new Inscripcion(nota);
 
-            Inscripcion i = inscData.ObtenerInscripcion(idMateria, idMateria);
+            Inscripcion i = (Inscripcion) inscData.ObtenerInscripcion(a.getIdAlumno(), idMateria);
 
             // Corrección: Llamar al método actualizarNota con los parámetros correctos
             inscData.actualizarNota(i);
