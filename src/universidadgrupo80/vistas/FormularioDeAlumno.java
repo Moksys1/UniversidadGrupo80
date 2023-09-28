@@ -58,7 +58,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         jLabel4.setText("Nombre:");
 
         jBGuardar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jBGuardar.setText("Guardar");
+        jBGuardar.setText("Actualizar");
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
@@ -98,7 +98,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         });
 
         jBNuevo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jBNuevo.setText("Nuevo");
+        jBNuevo.setText("Guardar Nuevo");
         jBNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNuevoActionPerformed(evt);
@@ -139,9 +139,9 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jBNuevo)
-                        .addGap(69, 69, 69)
+                        .addGap(41, 41, 41)
                         .addComponent(jEliminar)
-                        .addGap(83, 83, 83)
+                        .addGap(49, 49, 49)
                         .addComponent(jBGuardar))
                     .addComponent(jSeparator1)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -201,7 +201,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addComponent(jDFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

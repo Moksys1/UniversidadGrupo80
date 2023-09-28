@@ -90,7 +90,6 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Carga de notas");
-        jLabel1.setPreferredSize(new java.awt.Dimension(173, 32));
 
         jcbAlumno.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jcbAlumno.addItemListener(new java.awt.event.ItemListener() {
@@ -107,7 +106,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Seleccionar alumno:");
 
-        jtNotas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtNotas.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jtNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -160,7 +159,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
